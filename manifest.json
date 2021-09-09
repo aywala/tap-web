@@ -1,0 +1,54 @@
+{
+	"manifest_version": 2,
+	"name": "触碰改造计划",
+	"version": "1.0.1",
+	"author": "Minstrel223",
+	"description": "__MSG_pluginDesc__",
+	"default_locale": "zh_CN",
+	"catagory": "Accessiblity",
+	"icons": {
+		"16": "icon.png",
+		"48": "icon.png",
+		"128": "icon.png"
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"https://www.bilibili.com/*"
+			],
+			"js": [
+				"js/base-tools.js",
+				"js/tap-bili.js"
+			],
+			"run_at": "document_end"
+		},
+		{
+			"matches": [
+				"https://www.bilibili.com/video/*"
+			],
+			"js": [
+				"js/tap-bili-video.js"
+			],
+			"run_at": "document_end"
+		},
+		{
+			"matches": [
+				"https://www.bilibili.com/bangumi/*"
+			],
+			"js": [
+				"js/tap-bili-bangumi.js"
+			],
+			"run_at": "document_end"
+		},
+		{
+			"matches": [
+				"https://v.qq.com/*"
+			],
+			"js": [
+				"js/base-tools.js",
+				"js/tap-qqv.js"
+			],
+			"run_at": "document_end"
+		}
+	]
+}
