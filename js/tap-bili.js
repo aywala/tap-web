@@ -6,12 +6,24 @@
 *************************************************************/
 
 let bili_1 = () => {  //适用于旧版哔哩哔哩（当前主要版本）
-    let selecters = [//顶部导航栏右侧的动态、收藏、历史三个元素
-        "#internationalHeader > div.mini-header.m-header > div > div.nav-user-center > div.user-con.signin > div:nth-child(4) > div",//动态
-        "#internationalHeader > div.mini-header.m-header > div > div.nav-user-center > div.user-con.signin > div:nth-child(5) > span > div.mini-favorite.van-popover__reference",//收藏
-        "#internationalHeader > div.mini-header.m-header > div > div.nav-user-center > div.user-con.signin > div:nth-child(6) > span > div.mini-history.van-popover__reference"
-    ]
-    TheFun(selecters, addTap1); //懂不懂 The Fun 的 The 啊
+    let selectors=[];
+    console.log(document.querySelector("#internationalHeader"))
+    if(document.querySelector("#internationalHeader")){//旧版网页
+        selectors = [//顶部导航栏右侧的动态、收藏、历史三个元素
+            "#internationalHeader > div.mini-header.m-header > div > div.nav-user-center > div.user-con.signin > div:nth-child(4) > div",//动态
+            "#internationalHeader > div.mini-header.m-header > div > div.nav-user-center > div.user-con.signin > div:nth-child(5) > span > div.mini-favorite.van-popover__reference",//收藏
+            "#internationalHeader > div.mini-header.m-header > div > div.nav-user-center > div.user-con.signin > div:nth-child(6) > span > div.mini-history.van-popover__reference"//历史
+        ]
+    }
+    else{//新版网页
+        selectors=[
+            "div.bili-header__bar > ul.right-entry > li:nth-child(3) > a > svg",
+            "div.bili-header__bar > ul.right-entry > li:nth-child(4) > a > svg",
+            "div.bili-header__bar > ul.right-entry > li:nth-child(5) > a > svg",
+            "div.bili-header__bar > ul.right-entry > li:nth-child(6) > a > svg"
+        ]
+    }
+   TheFun(selectors, addTap1); //懂不懂 The Fun 的 The 啊
 }
 
-bili_1();
+setTimeout(()=>bili_1(),1500)

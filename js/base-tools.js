@@ -109,12 +109,20 @@ let addTap1 = (elem) => {
     elem.addEventListener('touchstart', (e) => {
         e.preventDefault(); //使触摸事件结束后不默认产生后续鼠标事件
         if (elem.getAttribute('flag-tap') == '0') {
-            elem.dispatchEvent(mEnterEvt);
+            elem.dispatchEvent(new MouseEvent('mouseenter', {
+                bubbles: true,
+                cancelable: true,
+                view: window
+            }));
             elem.dispatchEvent(mOverEvt);
             elem.setAttribute("flag-tap", '1');
         }
         else {
-            elem.dispatchEvent(mLeaveEvt);
+            elem.dispatchEvent( new MouseEvent('mouseleave', {
+                bubbles: true,
+                cancelable: true,
+                view: window
+            }));
             elem.dispatchEvent(mOutEvt);
             elem.setAttribute("flag-tap", '0');
         }
